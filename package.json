@@ -1,0 +1,31 @@
+{
+  "name": "bem",
+  "version": "0.0.1",
+  "description": "a simple utility for create bem class",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "dev": "father dev -m",
+    "build": "father build -m",
+    "test": "jest"
+  },
+  "keywords": [],
+  "authors": [
+    "Lacorda"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "compiled"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.26.0",
+    "@types/jest": "^29.5.14",
+    "father": "^4.5.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5"
+  }
+}
