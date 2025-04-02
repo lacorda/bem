@@ -1,18 +1,5 @@
-export interface BEMConfig {
-  prefixCls?: string;
-  blockSeparator?: string;
-  elementSeparator?: string;
-  modifierSeparator?: string;
-}
-
-export const DEFAULT_CONFIG: BEMConfig = {
-  prefixCls: '',
-  blockSeparator: '-',
-  elementSeparator: '__',
-  modifierSeparator: '--',
-};
-
-export type ModifierType = (string | undefined | { [x: string]: boolean | undefined })[];
+import type { BEMConfig, ModifierType } from './type';
+import { DEFAULT_CONFIG } from './config';
 
 const BEMClassName = (name: string, config: BEMConfig) => {
   const {
@@ -53,8 +40,6 @@ const BEMClassName = (name: string, config: BEMConfig) => {
   };
 };
 
-export type BemFunc = ReturnType<typeof BEMClassName>;
-
 export const createBEM = (name: string, config?: BEMConfig) => {
   config = { ...DEFAULT_CONFIG, ...config };
   const { prefixCls, blockSeparator } = config;
@@ -63,3 +48,20 @@ export const createBEM = (name: string, config?: BEMConfig) => {
 
   return BEMClassName(prefixedName, config);
 };
+
+// Bem class for create bem classes with setting common prefixCls
+// Usage:
+// const bem = new Bem({ prefixCls: 'test' });
+// const createBEM2 = (block: string) => bem.create(block);
+export class Bem {
+  config: BEMConfig;
+
+  constructor(config?: BEMConfig) {
+    config = { ...DEFAULT_CONFIG, ...config };
+    this.config = config;
+  }
+
+  create(block: string) {
+    return createBEM(block, this.config);
+  }
+}

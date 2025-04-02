@@ -1,6 +1,6 @@
 {
-  "name": "bem",
-  "version": "0.0.1",
+  "name": "@lacorda/bem",
+  "version": "0.0.3",
   "description": "a simple utility for create bem class",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
